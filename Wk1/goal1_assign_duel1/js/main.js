@@ -5,6 +5,8 @@ var p1="Empoleon", p2="Infernape"; /*establishes player names in variables*/
 var p1hp=100, p2hp=100;             /*establishes player health*/
 var p1a=20, p2a=20;                 /*creates the attack (or damage or strength) var, which seems unnecessary because for now they are equal*/
 
+
+
 function fight() {                  /*Making a function that will be run upon input*/
     for (var turn = 0; turn < 10; turn++) {      /*if the turn is less than 10, increase it by one*/
         var p1dm = p1a * .5;                    /*sets min damage to half player 1's attack*/
@@ -14,5 +16,19 @@ function fight() {                  /*Making a function that will be run upon in
         p1hp-=dmg1;     /*lowers p1's hp*/
         p2hp-=dmg2;     /*lowers p2's hp*/
 
+        console.log(p1+ " hp:"+ p1hp+ " "+ p2+ " hp:"+ p2hp); /* console tells you how much health the players have after the turn*/
+
+        var result = winnerCheck();      /*creates a ver so the winnercheck() results are easily communicated*/
+        console.log(result);             /*logs this into the console*/
+
+        if (result==="no winner"){       /*checks data to see what to display in the alerts, specifically if it says "no winner" exactly*/
+            alert("Turn " +turn+ " results: " +p1+ " hp: " +p1hp+ "% " +p2+ " hp: " +p2hp+ "%"); /*shows the turn and hp percentages, assuming 100 is a percent not a value, logically*/
+        } else{                          /*if winnercheck() produces anything else*/
+            alert(result);              /*alerts with the winnercheck value stored in the var (line 21)*/
+            break;                      /*stops everything*/
+        }
     }
 }
+
+
+
