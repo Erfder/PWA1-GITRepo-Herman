@@ -9,7 +9,7 @@
 
     function fight() {                  /*Making a function that will be run upon input*/
         alert(p1+ "'s HP:" +p1hp+" %  *START*  " +p2+ "'s HP:" +p2hp+ "%"); /*tells you how much hp they start with in an alert*/
-        for (var turn = 1; turn < 10; turn++) {      /*if the turn is less than 10, increase it by one. Condensed "Round" into this so that it actually has relevance to put anything in here*/
+        for (var turn = 1; turn < 11; turn++) {      /*if the turn is less than 11 (to include turn 10, seeing as how it starts on 1), increase it by one. Condensed "Round" into this so that it actually has relevance to put anything in here*/
             var p1dm = p1a * .5;
             /*sets min damage to half player 1's attack*/
             var p2dm = p2a * .5;

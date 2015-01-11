@@ -16,8 +16,8 @@
     var playerTwoName = "Batman";
 
     //player damage
-    var player1Damage = 20;
-    var player2Damage = 20;
+    var player1Damage = 10;
+    var player2Damage = 10;
 
     //player health
     var playerOneHealth = 100;
