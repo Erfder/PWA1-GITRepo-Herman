@@ -5,10 +5,11 @@
     var p1="Empoleon", p2="Infernape";  /*establishes player names in variables*/
     var p1hp=100, p2hp=100;             /*establishes player health*/
     var p1a=20, p2a=20;                 /*creates the attack (or damage or strength) var, which seems unnecessary because for now they are equal*/
-
+    console.log("Trainer Gary wants to battle! Gary sent out Empoleon! Go, Infernape!"); /*tells you gary wants to battle in the console.*/
 
     function fight() {                  /*Making a function that will be run upon input*/
-        for (var turn = 0; turn < 10; turn++) {      /*if the turn is less than 10, increase it by one. Condensed "Round" into this so that it actually has relevance to put anything in here*/
+        alert(p1+ "'s HP:" +p1hp+" %  *START*  " +p2+ "'s HP:" +p2hp+ "%"); /*tells you how much hp they start with in an alert*/
+        for (var turn = 1; turn < 10; turn++) {      /*if the turn is less than 10, increase it by one. Condensed "Round" into this so that it actually has relevance to put anything in here*/
             var p1dm = p1a * .5;
             /*sets min damage to half player 1's attack*/
             var p2dm = p2a * .5;
@@ -22,7 +23,7 @@
             p2hp -= dmg2;
             /*lowers p2's hp*/
 
-            console.log(p1 + " hp:" + p1hp + " " + p2 + " hp:" + p2hp);
+            console.log(p1 + "'s hp:" + p1hp + " " + p2 + "'s hp:" + p2hp);
             /* console tells you how much health the players have after the turn*/
 
             var result = winnerCheck();
@@ -31,11 +32,11 @@
             /*logs this into the console*/
 
             if (result === "no winner") {       /*checks data to see what to display in the alerts, specifically if it says "no winner" exactly*/
-                alert("Turn " + turn + " results: " + p1 + " hp: " + p1hp + "% " + p2 + " hp: " + p2hp + "%");
+                alert("Turn " + turn + " results: " + p1 + "'s HP:" + p1hp + "%, " + p2 + "'s HP:" + p2hp + "%");
                 /*shows the turn and hp percentages, assuming 100 is a percent not a value, logically*/
             } else {                          /*if winnercheck() produces anything else*/
                 alert(result);
-                /*alerts with the winnercheck value stored in the var (line 28)*/
+                /*alerts with the winnercheck value stored in the var (line 29)*/
                 break;
                 /*stops everything*/
             }
@@ -43,9 +44,9 @@
     }
 
 
-    function winnerCheck() {         /*makes the function the var in line 28 is looking for*/
+    function winnerCheck() {         /*makes the function the var in line 29 is looking for*/
         var result = "no winner";
-        /*makes a string value line 30 is looking for*/
+        /*makes a string value line 31 is looking for*/
         if (p1hp < 1 && p2hp < 1) {       /*if both die using comparative code*/
             result = "You both faint";
             /*rewrites the var if the last line is true*/
