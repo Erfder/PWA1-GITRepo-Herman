@@ -1,5 +1,5 @@
 /**
-  Created by Chase Herman on 1/10/15, week one javascript duel
+  Created by Chase Herman on 1/10/15, week one javascript duel, rewritten in a pokemon format
  */
 var p1="Empoleon", p2="Infernape"; /*establishes player names in variables*/
 var p1hp=100, p2hp=100;             /*establishes player health*/
@@ -32,3 +32,17 @@ function fight() {                  /*Making a function that will be run upon in
 
 
 
+function winnerCheck(){         /*makes the function line 21 is looking for*/
+    var result="no winner";     /*makes a string value line 24 is looking for*/
+    if (p1hp<1 && p2hp<1){       /*if both die using comparative code*/
+        result = "You Both Faint";
+        /*rewrites the var if the last line is true*/
+    } else if(p1hp<1){              /*checks if p1 is fainted*/
+        result = p2+ " WINS!!!";
+        /*rewrites the var if the last line is true*/
+    } else if (p2hp<1){             /*checks if p2 is fainted*/
+        result = p1+ " WINS!!!";
+        /*rewrites the var appropriately*/
+    }
+    return result; /*officially sets the var to the appropriate value after conditionals*/
+}
