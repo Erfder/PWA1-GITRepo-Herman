@@ -35,7 +35,7 @@
 	var search = function(query){    /*this is trying to store a var under the name search, where the content of the var is defined by the following function*/
 		
 		// split the user's search query string into an array
-		var queryArray = query.join(" ");   /*self explanatory from the above line-- it splits the text entered into an array of words*/
+		var queryArray = query.split(" ");   /*changed join to split*/
 		
 		// array to store matched results from database.js
 		var results = [];   /*again, previous line states what it does-- matches results on the other js page*/
@@ -46,9 +46,9 @@
             // each db[i] is a single video item, each title ends with a pipe "|"
             // save a lowercase variable of the video title
             var dbTitleEnd = db[i].indexOf('|');
-            /*dbtitleend var is defined by where the pipe in the db titles end and where the url starts*/
+                                /*dbtitleend var is defined by where the pipe in the db titles end and where the url starts*/
             var dbitem = db[i].toLowerCase().substring(0, dbTitleEnd);
-            /*dbitem is stated to be a lowercase form of the title*/
+                                /*dbitem is stated to be a lowercase form of the title*/
 
             // loop through the user's search query words
             // save a lowercase variable of the search keyword
@@ -71,12 +71,12 @@
             /*makes a function based on results from above*/
 
             // Check that matches were found, and run output functions
-            if (results.length = 0) {     /*if the line is empty (no results)...*/
+            if (results.length === 0) {     /*if the line is empty (no results)...*/
                 noMatch();
-                /*...perform the nomatch function*/
+                /*...perform the noMatch function*/
             } else {                      /*if it contains anything (match[es])...*/
                 showMatches(results);
-                /*...use it/them to perform the showmatches function*/
+                /*...use it/them to perform the showMatches function*/
             }
         }
 	};
@@ -98,7 +98,7 @@
 			title,                   /*...the title...*/
 			url                      /*...and the url*/
 		;
-		
+
 		// loop through all the results search() function
 		for(var i=0, j=results.length; i<j; i++){       /*goes through the function on line 34's results*/
 		
@@ -116,7 +116,7 @@
 		resultsDIV.innerHTML = html; //THIS LINE IS CORRECT.  /*puts the html var into the actual html*/
 	};
 	
-	// The onsubmit event will be reviewed in upcoming Course Material.
+	// The onSubmit event will be reviewed in upcoming Course Material.
 	// THE LINE DIRECTLY BELOW IS CORRECT
 	document.forms[0].onsubmit = function() {        /*when submit/enter is pushed, start the function*/
         var query = searchInput.value;
