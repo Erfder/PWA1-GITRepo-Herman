@@ -1,6 +1,6 @@
 /*Created by Chase Herman on 1/23/15, week one javascript duel, rewritten in a pokemon format */
 
- /*sets all of the below to be a function that starts on the page load      */
+
 var p = [       /*establishes player names in an object, as well as their hp and attack strength, all held in an array*/
     {name: "Infernape", hp: 100, minD: 20},
     {name: "Empoleon", hp: 100, minD: 20}
@@ -45,20 +45,20 @@ var roundN = 1;//round counter var
             hp1.innerHTML = p[0].name+ ": " +p[0].hp;
             hp2.innerHTML = p[1].name+ ": " +p[1].hp;//changes html to read the results
 
-            rndNum.innerHTML = "Turn "+roundN+" over! No winner yet!";
-            roundN += 1;
+            rndNum.innerHTML = "Turn "+roundN+" over! No winner yet!"; //changes html above button to say what round it is
+            roundN += 1; //increases round number after that
 
             //*shows the turn and hp percentages, assuming 100 is a percent not a value, logically*//*
         } else {
             //*if winnercheck() produces anything else*//*
 
             hp1.innerHTML = p[0].name + ": " + p[0].hp;
-            hp2.innerHTML = p[1].name + ": " + p[1].hp;//changes html to read the results
-            rndNum.innerHTML = "Turn " + roundN + " over! " + result;
-            document.getElementById("fight_btn").removeEventListener("click",fight,false);
-            document.getElementById("fight_btn").addEventListener("click", done, false);
+            hp2.innerHTML = p[1].name + ": " + p[1].hp;     //changes html to read the results
+            rndNum.innerHTML = "Turn " + roundN + " over! " + result;       //changes above the button to say the results and round number
+            document.getElementById("fight_btn").removeEventListener("click",fight,false); //takes away the ability to run fight()
+            document.getElementById("fight_btn").addEventListener("click", done, false); //invokes done() if pushed again.
             function done(){
-                window.location.reload()
+                window.location.reload(); //forces refresh
             }
 
         }
@@ -66,7 +66,7 @@ var roundN = 1;//round counter var
 }) ();
 
 
-function winnerCheck() {         //makes the function the var in line 29 is looking for
+function winnerCheck() {         //winnercheck establishes what happens if/when someone wins
     var result = "no winner";
         //makes a string value line 31 is looking for
     if (p[0].hp < 1 && p[1].hp < 1) {       //if both die using comparative code
@@ -79,7 +79,7 @@ function winnerCheck() {         //makes the function the var in line 29 is look
         result = p[0].name + " wins!";
             //*rewrites the var appropriately
     }
-    if (p[0].hp < -19 || p[1].hp < -19) { //if a turn past the limit is reached, force reload.
+    if (p[0].hp < -19 || p[1].hp < -19) { //if a turn past the limit is somehow reached, force reload.
         window.location.reload()
     }
     return result;
